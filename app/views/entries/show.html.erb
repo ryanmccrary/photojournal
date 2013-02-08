@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Photo:</b>
+  <%= @entry.photo %>
+</p>
+
+<p>
+  <b>Copy:</b>
+  <%= @entry.copy %>
+</p>
+
+
+<%= link_to 'Edit', edit_entry_path(@entry) %> |
+<%= link_to 'Back', entries_path %>
