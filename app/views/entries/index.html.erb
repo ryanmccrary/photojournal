@@ -1,25 +1,23 @@
-<h1>Listing entries</h1>
+<div class="page-header">
+<h4>Photojournal Entries</h4>
+</div>
 
-<table>
-  <tr>
-    <th>Photo</th>
-    <th>Copy</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<%= current_user.id %>
 
 <% @entries.each do |entry| %>
-  <tr>
-    <td><%= entry.photo %></td>
-    <td><%= entry.copy %></td>
-    <td><%= link_to 'Show', entry %></td>
-    <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
-    <td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+
+<div class="row">
+<div class="entry">
+  <div class="span4">
+    <%= image_tag entry.photo %>
+  </div>
+  <div class="span8">
+    <strong><%= entry.copy %></strong>
+    <div class="meta">
+    <%= link_to time_ago_in_words(entry.created_at) + " ago", entry %>
+    </div>
+  </div>
+</div>
+</div>
+
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Entry', new_entry_path %>
