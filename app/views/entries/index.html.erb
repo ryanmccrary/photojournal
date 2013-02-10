@@ -2,19 +2,20 @@
 <h4>Photojournal Entries</h4>
 </div>
 
-<%= current_user.id %>
+<!-- <%= current_user.id %> -->
 
 <% @entries.each do |entry| %>
 
 <div class="row">
 <div class="entry">
   <div class="span4">
-    <%= image_tag entry.photo %>
+
+    <%= image_tag entry.image.url(:medium) %>
   </div>
   <div class="span8">
     <strong><%= entry.copy %></strong>
     <div class="meta">
-    <%= link_to time_ago_in_words(entry.created_at) + " ago", entry %>
+    <%= link_to time_ago_in_words(entry.created_at) + " ago", entry %> by <%= entry.user_id %>
     </div>
   </div>
 </div>

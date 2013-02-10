@@ -12,9 +12,12 @@
   <% end %>
 
   <%= f.input :photo %>
+  
   <%= f.input :copy %>
 
   <%= f.file_field :image %>
+
+  <%= f.hidden_field :user_id, :value => current_user.id %>
   
 
   <div class="actions">

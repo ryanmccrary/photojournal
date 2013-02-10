@@ -1,4 +1,6 @@
 class EntriesController < ApplicationController
+  # Devise
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :update] 
   # GET /entries
   # GET /entries.json
   def index
