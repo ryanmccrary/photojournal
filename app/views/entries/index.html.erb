@@ -2,7 +2,6 @@
 <h4>Photojournal Entries</h4>
 </div>
 
-<!-- <%= current_user.id %> -->
 
 <% @entries.each do |entry| %>
 
@@ -15,7 +14,8 @@
   <div class="span8">
     <strong><%= entry.copy %></strong>
     <div class="meta">
-    <%= link_to time_ago_in_words(entry.created_at) + " ago", entry %> by <%= entry.user_id %>
+    <%= link_to time_ago_in_words(entry.created_at) + " ago", entry %> by <%= entry.user.email %>
+
     </div>
   </div>
 </div>
