@@ -43,16 +43,15 @@ class EntriesController < ApplicationController
   # POST /entries.json
   def create
     @entry = Entry.new(params[:entry])
-
-    respond_to do |format|
       if @entry.save
-        format.html { redirect_to @entry, notice: 'Entry was successfully created.' }
-        format.json { render json: @entry, status: :created, location: @entry }
+          if params[:entry][:image].present?
+            render :crop
+          else
+             redirect_to @entry, notice: 'Entry was successfully created.'
+          end
       else
-        format.html { render action: "new" }
-        format.json { render json: @entry.errors, status: :unprocessable_entity }
+        render action: "new"
       end
-    end
   end
 
   # PUT /entries/1
@@ -60,15 +59,16 @@ class EntriesController < ApplicationController
   def update
     @entry = Entry.find(params[:id])
 
-    respond_to do |format|
       if @entry.update_attributes(params[:entry])
-        format.html { redirect_to @entry, notice: 'Entry was successfully updated.' }
-        format.json { head :no_content }
+          if params[:entry][:image].present?
+            render :crop
+          else
+             redirect_to @entry, notice: 'Entry was successfully updated.'
+          end
       else
-        format.html { render action: "edit" }
-        format.json { render json: @entry.errors, status: :unprocessable_entity }
+        render action: "edit"
       end
-    end
+
   end
 
   # DELETE /entries/1
