@@ -44,7 +44,7 @@ class EntriesController < ApplicationController
   def create
     @entry = Entry.new(params[:entry])
       if @entry.save
-          if params[:entry][:image].present?
+          if params[:entry][:image].present? || params[:entry][:remote_image_url].present?
             render :crop
           else
              redirect_to @entry, notice: 'Entry was successfully created.'

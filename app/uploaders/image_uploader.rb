@@ -38,7 +38,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Create different versions of your uploaded files:
    version :thumb do
      process :auto_orient
-     process :resize_to_limit => [250, 250]
+     process :crop
+     process :resize_to_fill => [250, 250]
    end
 
    version :large do
@@ -50,6 +51,19 @@ class ImageUploader < CarrierWave::Uploader::Base
    def auto_orient
     manipulate! do |img|
       img = img.auto_orient
+    end
+   end
+
+   def crop
+    if model.crop_x.present?
+      resize_to_limit(600, 600)
+      manipulate! do |img|
+        x = model.crop_x.to_i
+        y = model.crop_y.to_i
+        w = model.crop_w.to_i
+        h = model.crop_h.to_i
+        img.crop!(x, y, w, h)
+      end
     end
    end
 

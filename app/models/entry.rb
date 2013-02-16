@@ -1,6 +1,12 @@
 class Entry < ActiveRecord::Base
-  attr_accessible :copy, :photo, :image, :user_id, :remote_image_url
+  attr_accessible :copy, :photo, :image, :user_id, :remote_image_url, :crop_x, :crop_y, :crop_w, :crop_h
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+  after_update :crop_image
   
+  def crop_image
+    image.recreate_versions! if crop_x.present?
+  end
+
   belongs_to :user
 
   mount_uploader :image, ImageUploader
