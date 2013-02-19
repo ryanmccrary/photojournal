@@ -39,7 +39,7 @@ class ImageUploader < CarrierWave::Uploader::Base
    version :thumb do
      process :auto_orient
      process :crop
-     process :resize_to_fill => [250, 250]
+     process :resize_to_fill => [370, 493]
    end
 
    version :large do

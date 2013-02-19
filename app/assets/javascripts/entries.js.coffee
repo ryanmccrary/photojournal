@@ -7,7 +7,7 @@ jQuery ->
 class ImageCropper
   constructor: ->
     $('#cropbox').Jcrop
-      aspectRatio: 1
+      aspectRatio: .75
       setSelect: [0, 0, 600, 600]
       onSelect: @update
       onChange: @update
