@@ -9,8 +9,11 @@
    	<legend>Register</legend>
    	
     <%= f.input :email, :required => true, :autofocus => true %>
+    <%= f.input :profile_name, :required => true, :hint => "this will be your URL, choose wisely" %>
+    <%= f.input :description, :hint => "just 140 characters about yourself of your photojournal, or you can fill it in later" %>
     <%= f.input :password, :required => true %>
     <%= f.input :password_confirmation, :required => true %>
+
   
 
   

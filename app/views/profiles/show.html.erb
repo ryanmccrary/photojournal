@@ -1,2 +1,30 @@
-<h1>Profiles#show</h1>
-<p>Find me in app/views/profiles/show.html.erb</p>
+<div class="page-header">
+	<h1><%= @user.profile_name %></h1>
+</div>
+
+<% if @entries %> <!-- if there are entries -->
+  <% @entries.each do |entry| %>
+<div class="row">
+<div class="entry">
+  <div class="span4">
+
+    <%= image_tag entry.image.url(:thumb), class: "img-polaroid left" %>
+
+  </div>
+  <div class="span8">
+    <p class="entrycopy"><%= entry.copy %></p>
+  </div>
+</div>
+</div>
+
+<div class="row">
+  <div class="span12">
+    <p class="pull-right">
+    <%= link_to time_ago_in_words(entry.created_at) + " ago", entry %> by <%= entry.user.email %>
+    <%= link_to('edit', edit_entry_path(entry)) %>
+    </p>
+  </div>
+</div>
+<hr />
+  	<% end %>
+  <% end %>

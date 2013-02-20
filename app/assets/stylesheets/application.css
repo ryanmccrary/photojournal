@@ -24,3 +24,26 @@
  .alert {
  	margin-top: 10px;
  }
+
+ hr {
+ 	padding-bottom: 40px;
+ }
+
+ p.entrycopy {
+ 	font-family: georgia;
+ 	font-size: 1.3em;
+ 	line-height: 1.4em;
+ 	padding-left: 20px;
+ }
+
+ .meta {
+
+ }
+
+ .left {
+ 	float: left;
+ }
+
+ .toright {
+ 	float: right;
+ }
