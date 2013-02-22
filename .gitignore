@@ -16,3 +16,6 @@
 
 # Dang ol' DS Store
 .DS_Store
+
+# S3 Creds
+/config/local_env.yml

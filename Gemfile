@@ -8,9 +8,10 @@ gem "fog", "~> 1.3.1"
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-group :development, :test do
-	gem 'sqlite3'
+group :development do
+  gem 'sqlite3'
 end
+
 
 group :development do
   gem "better_errors"
