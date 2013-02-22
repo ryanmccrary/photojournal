@@ -1,3 +1,22 @@
+<% content_for :head do %>
+    <script type="text/javascript">
+      var info;
+      $(document).ready(function(){
+
+        var options2 = {
+            'maxCharacterSize': 140,
+            'originalStyle': 'originalTextareaInfo',
+            'warningStyle' : 'warningTextareaInfo',
+            'warningNumber': 40,
+            'displayFormat' : 'You have 140 characters total: #input/#max'
+        };
+        $('#userdescription').textareaCount(options2);
+
+      });
+    </script>
+
+<% end %>
+
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
@@ -5,7 +24,7 @@
 
   <div class="form-inputs">
     <%= f.input :email, :required => true, :autofocus => true %>
-    <%= f.input :description, :hint => "just 140 characters about yourself or your photojournal" %>
+    <%= f.text_area :description, id: "userdescription", :hint => "just 140 characters about yourself or your photojournal" %>
     <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
     <%= f.input :password_confirmation, :required => false %>
     <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>

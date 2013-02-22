@@ -4,6 +4,7 @@
 jQuery ->
   new ImageCropper()
 
+
 class ImageCropper
   constructor: ->
     $('#cropbox').Jcrop

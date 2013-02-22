@@ -1,3 +1,20 @@
+<% content_for :head do %>
+    <script type="text/javascript">
+      var info;
+      $(document).ready(function(){
+        var options = {
+          'maxCharacterSize': -2,
+          'originalStyle': 'originalTextareaInfo',
+          'warningStyle' : 'warningTextareaInfo',
+          'warningNumber': 250
+        };
+        $('#entrycopylimited').textareaCount(options);
+
+      });
+    </script>
+
+<% end %>
+
 <%= simple_form_for(@entry) do |f| %>
   <% if @entry.errors.any? %>
     <div id="error_explanation">
@@ -11,7 +28,8 @@
     </div>
   <% end %>
   
-  <%= f.input :copy %>
+
+  <%= f.text_area :copy, id: "entrycopylimited" %>
 
   <%= f.file_field :image %>
 

@@ -13,5 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.Jcrop
-//= require charCount
+//= require jquery.textareaCounter.plugin
 //= require_tree .

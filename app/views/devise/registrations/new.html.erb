@@ -1,3 +1,19 @@
+<% content_for :head do %>
+    <script type="text/javascript">
+      var info;
+      $(document).ready(function(){
+
+        var options2 = {
+            'maxCharacterSize': 140,
+            'originalStyle': 'originalTextareaInfo',
+            'warningStyle' : 'originalTextareaInfo',
+            'warningNumber': 40,
+            'displayFormat' : 'You have 140 characters total: #input/#max'
+        };
+        $('#userdescription').textareaCount(options2);
+
+      });
+    </script>
 
 <div class="row">
 	<div class="span4">
@@ -10,7 +26,7 @@
    	
     <%= f.input :email, :required => true, :autofocus => true %>
     <%= f.input :profile_name, :required => true, :hint => "this will be your URL, choose wisely" %>
-    <%= f.input :description, :hint => "just 140 characters about yourself of your photojournal, or you can fill it in later" %>
+    <%= f.text_area :description, id: "userdescription", :hint => "just 140 characters about yourself or your photojournal" %>
     <%= f.input :password, :required => true %>
     <%= f.input :password_confirmation, :required => true %>
 
