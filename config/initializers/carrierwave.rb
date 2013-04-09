@@ -6,5 +6,5 @@ CarrierWave.configure do |config|
     :region                 => 'us-east-1'
   }
   config.fog_directory  = 'photojournal'                    # required
-  config.fog_public     = false                                   # optional, defaults to true
+  config.fog_public     = true                                 # optional, defaults to true
 end
