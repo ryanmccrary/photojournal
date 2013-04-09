@@ -1,4 +1,21 @@
+<% content_for :head do %>
+    <script type="text/javascript">
+      var info;
+      $(document).ready(function(){
 
+        var options2 = {
+            'maxCharacterSize': 140,
+            'originalStyle': 'originalTextareaInfo',
+            'warningStyle' : 'originalTextareaInfo',
+            'warningNumber': 40,
+            'displayFormat' : 'You have 140 characters total: #input/#max'
+        };
+        $('#userdescription').textareaCount(options2);
+
+      });
+    </script>
+
+    <% end %>
 
 <div class="row">
 	<div class="span4">
