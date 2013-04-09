@@ -2,7 +2,10 @@
 
 <!-- <%= image_tag @entry.image.url(:large), id: "cropbox" %> -->
 
-<%= image_tag entry.image_url(:large), id: "cropbox" %>
+
+<!-- <%= image_tag @entry.image_url(:large), id: "cropbox" %> -->
+
+<%= image_tag(@entry.image_url) %>
 
 <%= form_for @entry do |f| %>
   <% %w[x y w h].each do |attribute| %>
