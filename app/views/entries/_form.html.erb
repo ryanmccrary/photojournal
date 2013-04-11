@@ -29,7 +29,7 @@
   <% end %>
   
 
-  <%= f.text_area :copy, id: "entrycopylimited" %>
+  <%= f.text_area :copy, class: "field span7", id: "entrycopylimited" %>
 
   <%= f.file_field :image %>
 
@@ -39,6 +39,6 @@
   <%= f.hidden_field :user_id, :value => current_user.id %>
   
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn" %>
   </div>
 <% end %>

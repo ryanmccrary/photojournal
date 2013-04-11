@@ -11,6 +11,8 @@ class Entry < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
+  default_scope order: 'entries.created_at DESC'
+
   
 
   # has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }
