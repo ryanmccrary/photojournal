@@ -1,6 +1,6 @@
 Photojournal::Application.routes.draw do
 
-  # get "profiles/show"
+  get "profiles/show"
 
    devise_for :users
 
@@ -15,7 +15,7 @@ Photojournal::Application.routes.draw do
 
   root to: 'entries#index' 
 
-  get '/:id', to: 'profiles#show', as: 'profile'
+  get '/:profile_name', to: 'profiles#show', as: 'profile'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
