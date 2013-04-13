@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :profile_name
   # attr_accessible :title, :body
 
 
@@ -16,16 +16,13 @@ class User < ActiveRecord::Base
     profile_name
   end
 
+ validates :first_name, presence: true
 
-  # To Update when Devise is updated!!!
-  # validates :first_name, presence: true
+ validates :last_name, presence: true
 
-  # validates :last_name, presence: true
-
-  # validates :profile_name, presence: true,
-   #                        uniqueness: true,
-    #                       format: {
-     #                       with: /^[a-zA-Z0-9_-]+$/,
-      #                      message: 'Must be formatted correctly'
-       #                    }
+ validates :profile_name, presence: true, uniqueness: true,
+                          format: {
+                          with: /^[a-zA-Z0-9_-]+$/,
+                          message: 'Must be formatted correctly'
+                           }
 end
