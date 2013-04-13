@@ -16,9 +16,9 @@ class User < ActiveRecord::Base
     profile_name
   end
 
- validates :first_name, presence: true
+ # validates :first_name, presence: true
 
- validates :last_name, presence: true
+ # validates :last_name, presence: true
 
  validates :profile_name, presence: true, uniqueness: true,
                           format: {
