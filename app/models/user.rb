@@ -12,6 +12,10 @@ class User < ActiveRecord::Base
 
   has_many :entries
 
+  def to_param
+    profile_name
+  end
+
 
   # To Update when Devise is updated!!!
   # validates :first_name, presence: true
