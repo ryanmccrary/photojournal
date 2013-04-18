@@ -7,6 +7,10 @@ class Entry < ActiveRecord::Base
     image.recreate_versions! if crop_x.present?
   end
 
+  def user_now
+    @user_now = User.current_user
+  end
+
   belongs_to :user
 
   mount_uploader :image, ImageUploader
