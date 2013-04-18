@@ -1,6 +1,7 @@
 class EntriesController < ApplicationController
   # Devise
   before_filter :authenticate_user!, only: [:new, :create, :edit, :update] 
+  before_filter :correct_user,   only: [:edit, :update, :destroy]
   # GET /entries
   # GET /entries.json
   def index
@@ -82,4 +83,12 @@ class EntriesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+  def correct_user
+    @user = Entry.find(params[:id]).user
+    redirect_to root_path unless current_user == @user
+  end
+
 end
