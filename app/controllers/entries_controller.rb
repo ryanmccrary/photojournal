@@ -48,7 +48,7 @@ class EntriesController < ApplicationController
           if params[:entry][:image].present? || params[:entry][:remote_image_url].present?
             render :crop
           else
-             redirect_to @entry, notice: 'Entry was successfully created.'
+             redirect_to @entry, notice: 'You did it, you made an entry. Cool right? Proud of you - but you already knew that.'
           end
       else
         render action: "new"
@@ -64,7 +64,7 @@ class EntriesController < ApplicationController
           if params[:entry][:image].present?
             render :crop
           else
-             redirect_to @entry, notice: 'Entry was successfully updated.'
+             redirect_to @entry, notice: 'Successfully updated. Glad you fixed that, I was a little embarrased for you.'
           end
       else
         render action: "edit"

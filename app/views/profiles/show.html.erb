@@ -1,5 +1,8 @@
 <div class="page-header">
 	<h1><%= @user.profile_name %></h1>
+  <p class="muted">
+      <%= @user.description %>
+    </p>
 </div>
 
 <% if @entries %> <!-- if there are entries -->
@@ -20,12 +23,28 @@
 <div class="row">
   <div class="span12">
     <p class="pull-right">
+              <% if user_signed_in? && current_user.id == entry.user_id %>
+
+              <%= link_to "Edit", edit_entry_path(entry) %> |
+              <%= link_to "Delete", entry, method: :delete, data: { confirm: "Are you sure you want to delete this entry?"} %> |
+
+              <% else %>
+              --
+              <% end %>
     <%= link_to time_ago_in_words(entry.created_at) + " ago", entry %> by <%= entry.user.email %>
-    <%= link_to('edit', edit_entry_path(entry)) %>
     </p>
   </div>
 </div>
 <hr />
   	<% end %>
+
+    <% else %><!--if no entries-->
+
+    <div class="row">
+      <div class="span12 center">
+        <h2>Dag yo, - <%= @user.profile_name %> hasn't posted anything yet</h2>
+        <h4>If you know 'em you should tell 'em that's lame, and to post something. K?</h4>
+      </div>
+    </div>
 
   <% end %>

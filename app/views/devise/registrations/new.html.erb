@@ -28,14 +28,14 @@
    	
     <%= f.input :email, :required => true, :autofocus => true %>
     <%= f.input :profile_name, :required => true, :hint => "this will be your URL, choose wisely" %>
-    <%= f.text_area :description, id: "userdescription", :hint => "just 140 characters about yourself or your photojournal" %>
+    <br />
+    <label>Description</label>
+    <%= f.text_area :description, id: "userdescription", rows: "10", :hint => "just 140 characters about yourself or your photojournal" %>
+    <br />
     <%= f.input :password, :required => true %>
     <%= f.input :password_confirmation, :required => true %>
 
-  
-
-  
-    <%= f.button :submit, "Sign up" %>
+  <%= f.button :submit, "Sign up" %>
    </fieldset>
   
 <% end %>
@@ -46,6 +46,11 @@
 
 <div class="span8">
 	<h2>Sign up</h2>
+  <p>So here's the deal. You're getting a photojournal!!!1 They're the coolest. And they're fun. And they'll make you popular, and even get you dates. You might not believe that last part, but we're pretty sure there are statistics on that somewhere. Or somebody studying it right this minute.</p>
+  <p>It's also a crazy-safe thing to do. Pics and words, how can you mess that up.</p>
+  <p>Another thing to think about with a photojournal is the mad confidence it will inspire in you. You're writing skills will sky-rocket which translates well to conversations, which transfers well to getting dates or selling things. And who's not trying to do <em>either</em> of those? <strong>Spoiler alert:</strong> NOBODY</p>
+  <p>Sure, that's a double negative, but who's not un-keeping count. See what I did there?</p>
+  <p>And also, why are you still reading this? Sign up! Change your life! Start wearing suits!</p>
 </div>
 
 </div>
