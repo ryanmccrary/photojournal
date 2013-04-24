@@ -13,9 +13,8 @@
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container">
-				<a href="#" class="brand">Photojournal</a>
+				<%= link_to "Photojournal", entries_path, class: "brand" %>
 				<ul class="nav">
-					<li><%= link_to "Journal Entries", entries_path %></li>
 					<li><%= link_to "New Entry", new_entry_path %></li>
 
 				</ul>
@@ -68,7 +67,7 @@
 
 
 			<%= yield %>
-
+		<br /><br />
 		<div class="row">
 			<div class="span2">
 				<p><strong>What is this thing?</strong></p>

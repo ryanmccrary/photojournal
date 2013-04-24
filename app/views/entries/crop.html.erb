@@ -1,17 +1,32 @@
 <h1>Crop</h1>
 
-<!-- <%= image_tag @entry.image.url(:large), id: "cropbox" %> -->
+<div class="row">
 
+	<div class="span7">
 
-<%= image_tag @entry.image_url(:large), id: "cropbox" %> 
+		<%= image_tag @entry.image_url(:large), id: "cropbox" %> 
+		 
+		<%= form_for @entry do |f| %>
+		  <% %w[x y w h].each do |attribute| %>
+		    <%= f.hidden_field "crop_#{attribute}" %>
+		  <% end %>
+		  <br />
+		  <br />
+		  <div class="actions">
+		    <%= f.submit "Crop", class: "btn" %>
+		  </div>
 
-<!-- <%= image_tag(@entry.image_url) %> -->
- 
-<%= form_for @entry do |f| %>
-  <% %w[x y w h].each do |attribute| %>
-    <%= f.hidden_field "crop_#{attribute}" %>
-  <% end %>
-  <div class="actions">
-    <%= f.submit "Crop" %>
-  </div>
+  	</div>
+
+  	<div class="span5">
+
+  		<p>Now, let's crop it down. You can show as much or as little as you want, just keep in mind that you're zooming in on pixels, so don't kill the quality.</p>
+
+		<p>The proportions will stay the same (iPhone screen size) but you can move that little crop-box around until your heart is content.</p>
+
+		<p>Then press crop and we'll see how this beauty looks all wrapped up. Deal?</p>
+
+  	</div>
+
+ </div>
 <% end %>

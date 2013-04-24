@@ -29,16 +29,19 @@
   <% end %>
   
 
-  <%= f.text_area :copy, class: "field span7", id: "entrycopylimited" %>
+    <%= f.text_area :copy, class: "field span7", id: "entrycopylimited" %>
+        
+         <h4>Attach your image:</h4>
+          <%= f.file_field :image %>
 
-  <%= f.file_field :image %>
+          <br /><br />
 
-  <!-- <%= f.label :remote_image_url, "or image URL" %>
-  <%= f.text_field :remote_image_url %> -->
+          <!-- <%= f.label :remote_image_url, "or image URL" %>
+          <%= f.text_field :remote_image_url %> -->
 
-  <%= f.hidden_field :user_id, :value => current_user.id %>
-  
-  <div class="actions">
-    <%= f.submit class: "btn" %>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+          
+          <div class="actions">
+            <%= f.submit class: "btn" %>
   </div>
 <% end %>
